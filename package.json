@@ -1,0 +1,26 @@
+{
+  "name": "starter-koa",
+  "version": "1.0.0",
+  "description": "starter for a koa server",
+  "main": "index.mjs",
+  "type": "module",
+  "author": "edwmurph",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.mjs",
+    "lint": "eslint . --ext .mjs",
+    "lint:fix": "eslint . --ext .mjs --fix"
+  },
+  "dependencies": {
+    "@koa/router": "12.0.0",
+    "http-errors": "2.0.0",
+    "koa": "2.14.2"
+  },
+  "devDependencies": {
+    "@edwmurph/eslint-config": "5.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edwmurph/starter-koa.git"
+  }
+}
