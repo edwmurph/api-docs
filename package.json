@@ -1,7 +1,7 @@
 {
-  "name": "starter-koa",
+  "name": "swagger",
   "version": "1.0.0",
-  "description": "starter for a koa server",
+  "description": "swagger",
   "main": "index.mjs",
   "type": "module",
   "author": "edwmurph",
@@ -21,6 +21,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edwmurph/starter-koa.git"
+    "url": "git+https://github.com/edwmurph/swagger.git"
   }
 }
