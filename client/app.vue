@@ -1,9 +1,10 @@
 <script setup>
+import SwaggerUI from './components/swagger-ui.vue';
 </script>
 
 <template>
   <main>
-    <div>success!</div>
+    <SwaggerUI />
   </main>
 </template>
 
