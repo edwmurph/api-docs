@@ -1,5 +1,5 @@
 module.exports = {
   extends: [
-    '@edwmurph/eslint-config/vue'
+    '@edwmurph/eslint-config/react'
   ]
 };
