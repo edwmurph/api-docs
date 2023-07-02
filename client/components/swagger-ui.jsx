@@ -1,16 +1,29 @@
 import { useEffect } from 'react';
-import SwaggerUI from 'swagger-ui';
+import { SwaggerUIStandalonePreset, SwaggerUIBundle } from 'swagger-ui-dist';
 import Layout from './layout.jsx';
+import Logo from './logo.jsx';
 
 export default function SwaggerUIComponent() {
   useEffect( () => {
-    SwaggerUI({
+    SwaggerUIBundle({
       dom_id: '#swagger-ui',
       queryConfigEnabled: true,
-      plugins: [() => ({ components: { Layout } })],
-      layout: 'Layout'
+      // layout: 'Layout',
+      layout: 'StandaloneLayout',
+      presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIStandalonePreset
+      ],
+      plugins: [
+        () => ({
+          components: {
+            Layout,
+            Logo
+          }
+        })
+      ]
     });
   }, [] );
 
-  return ( <div id='swagger-ui'></div> );
+  return ( <div id='swagger-ui'/> );
 }
