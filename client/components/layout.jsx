@@ -3,8 +3,10 @@ export default function Layout({ getComponent }) {
 
   return (
     <div>
-      <div className='text-center mt-3'>
-        <h3>Custom layout demo</h3>
+      {/* eslint-disable-next-line max-len */}
+      <div className='d-flex justify-content-between align-items-center h-3 border border-primary px-2'>
+        <i className='bi bi-file-code'></i>
+        <b>demo</b>
       </div>
       <BaseLayout/>
     </div>
