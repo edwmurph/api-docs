@@ -18,9 +18,11 @@
     "bootstrap-icons": "1.10.5",
     "http-errors": "2.0.0",
     "koa": "2.14.2",
+    "koa-send": "5.0.1",
     "koa-static": "5.0.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.14.1"
   },
   "devDependencies": {
     "@edwmurph/eslint-config": "5.0.3",
