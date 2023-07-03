@@ -1,7 +1,3 @@
-# swagger
+# api-docs
 
-client side rendered react app with server for dynamically fetching swagger definitions
-
-# customization
-
-https://github.com/swagger-api/swagger-ui/blob/master/docs/customization/overview.md
+client side rendered react app demoing standalone swagger, redoc and asyncapi integrations with hosted api definitions

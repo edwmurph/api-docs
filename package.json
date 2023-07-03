@@ -1,7 +1,7 @@
 {
-  "name": "swagger",
+  "name": "api-docs",
   "version": "1.0.0",
-  "description": "swagger",
+  "description": "api-docs",
   "main": "index.mjs",
   "type": "module",
   "author": "edwmurph",
@@ -20,8 +20,7 @@
     "koa": "2.14.2",
     "koa-static": "5.0.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "swagger-ui-dist": "5.1.0"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@edwmurph/eslint-config": "5.0.3",
@@ -30,6 +29,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edwmurph/swagger.git"
+    "url": "git+https://github.com/edwmurph/api-docs.git"
   }
 }
