@@ -10,8 +10,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { PrimeReactProvider } from 'primereact/api';
 import Layout from './components/layout.jsx';
 import Home from './components/home.jsx';
-import SwaggerUI from './components/swagger-ui.jsx';
-import Redoc from './components/redoc.jsx';
+import Swagger from './components/swagger.jsx';
 import AsyncAPI from './components/asyncapi.jsx';
 
 const router = createBrowserRouter([
@@ -24,11 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/swagger',
-        element: <SwaggerUI/>
-      },
-      {
-        path: '/redoc',
-        element: <Redoc/>
+        element: <Swagger/>
       },
       {
         path: '/async-api',
