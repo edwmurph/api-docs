@@ -1,14 +1,11 @@
-export default function Layout({ getComponent }) {
-  const BaseLayout = getComponent( 'BaseLayout', true );
+import { Outlet } from 'react-router-dom';
+import NavBar from './nav-bar.jsx';
 
+export default function Layout() {
   return (
     <div>
-      {/* eslint-disable-next-line max-len */}
-      <div className='d-flex justify-content-between align-items-center h-3 border border-primary px-2'>
-        <i className='bi bi-file-code'></i>
-        <b>demo</b>
-      </div>
-      <BaseLayout/>
+      <NavBar/>
+      <Outlet/>
     </div>
   );
 }
