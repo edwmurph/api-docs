@@ -1,11 +1,34 @@
-// eslint-disable-next-line max-len
-const classes = 'd-flex border border-primary justify-content-between align-items-center px-3 h-3';
+import { Menubar } from 'primereact/menubar';
+import { InputText } from 'primereact/inputtext';
+
+const items = [
+  {
+    id: 'Swagger',
+    label: 'Swagger',
+    url: '/swagger'
+  },
+  {
+    id: 'Redoc',
+    label: 'Redic',
+    url: '/redoc'
+  },
+  {
+    id: 'asyncapi',
+    label: 'AsyncAPI',
+    url: '/async-api'
+  }
+];
 
 export default function NavBar() {
   return (
-    <div className={classes}>
-      <i className='bi bi-journal-code font-size-2'/>
-      <div>Search...</div>
-    </div>
+    <Menubar
+      model={items}
+      start={
+        <i className='pi pi-file text-4xl'></i>
+      }
+      end={
+        <InputText placeholder='Search' type='text' className='w-full'/>
+      }
+    />
   );
 }

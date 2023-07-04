@@ -1,10 +1,13 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
 import 'swagger-ui-react/swagger-ui.css';
 import './global.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { PrimeReactProvider } from 'primereact/api';
 import NavBar from './components/nav-bar.jsx';
 import Home from './components/home.jsx';
 import SwaggerUI from './components/swagger-ui.jsx';
@@ -32,9 +35,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot( document.getElementById('root') ).render(
   <React.StrictMode>
-    <div>
+    <PrimeReactProvider>
       <NavBar/>
       <RouterProvider router={router}/>
-    </div>
+    </PrimeReactProvider>
   </React.StrictMode>
 );
