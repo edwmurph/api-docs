@@ -14,14 +14,16 @@ function ButtonLink({ to, label, className }) {
 export default function NavBar() {
   const items = [
     {
-      id: 'Swagger',
       label: 'Swagger',
       template: () => <ButtonLink to='/swagger' label='Swagger' className='mr-2'/>
     },
     {
-      id: 'asyncapi',
       label: 'AsyncAPI',
       template: () => <ButtonLink to='/async-api' label='AsyncAPI' className='mr-2'/>
+    },
+    {
+      label: 'Markdown',
+      template: () => <ButtonLink to='/markdown' label='Markdown' className='mr-2'/>
     }
   ];
 

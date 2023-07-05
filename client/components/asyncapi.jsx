@@ -9,6 +9,7 @@ export default function AsyncAPI() {
     AsyncApiStandalone.render(
       {
         schema: {
+          // eslint-disable-next-line max-len
           url: 'https://raw.githubusercontent.com/asyncapi/spec/v2.0.0/examples/2.0.0/streetlights.yml',
           options: { method: 'GET', mode: 'cors' }
         },

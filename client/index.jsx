@@ -13,6 +13,7 @@ import Layout from './components/layout.jsx';
 import Home from './components/home.jsx';
 import Swagger from './components/swagger.jsx';
 import AsyncAPI from './components/asyncapi.jsx';
+import Markdown from './components/markdown.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: '/async-api',
         element: <AsyncAPI/>
+      },
+      {
+        path: '/markdown',
+        element: <Markdown/>
       }
     ]
   }
