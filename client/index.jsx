@@ -11,9 +11,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { PrimeReactProvider } from 'primereact/api';
 import Layout from './components/layout.jsx';
 import Home from './components/home.jsx';
-import Swagger from './components/swagger.jsx';
-import AsyncAPI from './components/asyncapi.jsx';
-import Markdown from './components/markdown.jsx';
+import Definition from './components/definition.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,16 +22,8 @@ const router = createBrowserRouter([
         element: <Home/>
       },
       {
-        path: '/swagger',
-        element: <Swagger/>
-      },
-      {
-        path: '/async-api',
-        element: <AsyncAPI/>
-      },
-      {
-        path: '/markdown',
-        element: <Markdown/>
+        path: '/definition/*',
+        element: <Definition/>
       }
     ]
   }

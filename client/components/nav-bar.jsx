@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import { Menubar } from 'primereact/menubar';
-import { InputText } from 'primereact/inputtext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'primereact/button';
+import { CascadeSelect } from 'primereact/cascadeselect';
 
 function ButtonLink({ to, label, className }) {
   return (
@@ -11,7 +12,51 @@ function ButtonLink({ to, label, className }) {
   );
 }
 
+function DefinitionDropdown() {
+  const [selected, setSelected] = useState();
+  const navigate = useNavigate();
+
+  const options = [
+    {
+      name: 'team1',
+      children: [
+        {
+          name: 'webhook-example.yaml',
+          path: 'team1/webhook-example.yaml'
+        }
+      ]
+    },
+    {
+      name: 'uber',
+      children: [
+        {
+          name: 'api.json',
+          path: 'uber/api.json'
+        }
+      ]
+    }
+  ];
+
+  return (
+    <CascadeSelect
+      value={selected}
+      options={options}
+      onChange={( e ) => {
+        setSelected( e.value );
+        navigate( `/definition/${ e.value }` );
+      }}
+      optionLabel='name'
+      optionValue='path'
+      optionGroupLabel='name'
+      optionGroupChildren={['children']}
+      className='w-20rem'
+      placeholder='Select a Definition'
+    />
+  );
+}
+
 export default function NavBar() {
+  /*
   const items = [
     {
       label: 'Swagger',
@@ -26,12 +71,12 @@ export default function NavBar() {
       template: () => <ButtonLink to='/markdown' label='Markdown' className='mr-2'/>
     }
   ];
+  */
 
   return (
     <Menubar
-      model={items}
       start={<ButtonLink to='/' label='Home' className='mr-2'/>}
-      end={<InputText placeholder='Search' type='text' className='w-full'/>}
+      end={<DefinitionDropdown/>}
     />
   );
 }
