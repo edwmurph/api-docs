@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Menubar } from 'primereact/menubar';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, createSearchParams } from 'react-router-dom';
 import { Button } from 'primereact/button';
 import { CascadeSelect } from 'primereact/cascadeselect';
 
@@ -43,7 +43,7 @@ function DefinitionDropdown() {
       options={options}
       onChange={( e ) => {
         setSelected( e.value );
-        navigate( `/definition/${ e.value }` );
+        navigate( `/definition?${ createSearchParams({ path: e.value }).toString() }` );
       }}
       optionLabel='name'
       optionValue='path'
