@@ -34,6 +34,19 @@ function DefinitionDropdown() {
           path: 'uber/api.json'
         }
       ]
+    },
+    {
+      name: 'asyncapi',
+      children: [
+        {
+          name: 'account-service.json',
+          path: 'asyncapi/account-service.json'
+        },
+        {
+          name: 'streetlights.yaml',
+          path: 'asyncapi/streetlights.yaml'
+        }
+      ]
     }
   ];
 

@@ -1,6 +1,8 @@
 import { createSearchParams, useSearchParams } from 'react-router-dom';
 import yaml from 'js-yaml';
 import use_api from '../hooks/use-api';
+import Swagger from './swagger.jsx';
+import AsyncApi from './asyncapi.jsx';
 
 function parse({ definition, data }) {
   try {
@@ -37,9 +39,21 @@ export default function Definition() {
   // TODO memoize this
   const parsed = parse({ definition: path, data });
 
+  console.log( parsed );
+
   if ( loading || !parsed ) {
     return 'Loading...';
   }
 
-  return ( <div>{JSON.stringify( parsed )}</div> );
+  if ( parsed.swagger || parsed.openapi ) {
+    return ( <Swagger spec={parsed}/> );
+  }
+
+  if ( parsed.asyncapi ) {
+    return ( <AsyncApi schema={parsed}/> );
+  }
+
+  return (
+    <div>{JSON.stringify( parsed )}</div>
+  );
 }

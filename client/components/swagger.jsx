@@ -1,9 +1,11 @@
 import SwaggerUI from 'swagger-ui-react';
 
-export default function Swagger() {
+// const url = 'https://petstore.swagger.io/v2/swagger.json';
+
+export default function Swagger({ spec }) {
   return (
     <div className='d-flex justify-content-center'>
-      <SwaggerUI url='https://petstore.swagger.io/v2/swagger.json'/>
+      <SwaggerUI spec={spec}/>
     </div>
   );
 }

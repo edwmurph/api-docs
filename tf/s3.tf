@@ -43,3 +43,19 @@ resource "aws_s3_object" "uber_api" {
   content_type = "application/json"
   etag         = filemd5("../definitions/uber/api.json")
 }
+
+resource "aws_s3_object" "account_service_api" {
+  bucket       = aws_s3_bucket.definitions.id
+  key          = "asyncapi/account-service.json"
+  source       = "../definitions/asyncapi/account-service.json"
+  content_type = "application/json"
+  etag         = filemd5("../definitions/asyncapi/account-service.json")
+}
+
+resource "aws_s3_object" "streetlights_api" {
+  bucket       = aws_s3_bucket.definitions.id
+  key          = "asyncapi/streetlights.yaml"
+  source       = "../definitions/asyncapi/streetlights.yaml"
+  content_type = "application/json"
+  etag         = filemd5("../definitions/asyncapi/streetlights.yaml")
+}
