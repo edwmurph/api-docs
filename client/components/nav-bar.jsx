@@ -3,6 +3,7 @@ import { Menubar } from 'primereact/menubar';
 import { Link, useNavigate, createSearchParams } from 'react-router-dom';
 import { Button } from 'primereact/button';
 import { CascadeSelect } from 'primereact/cascadeselect';
+import useApi from '../hooks/use-api';
 
 function ButtonLink({ to, label, className }) {
   return (
@@ -16,39 +17,19 @@ function DefinitionDropdown() {
   const [selected, setSelected] = useState();
   const navigate = useNavigate();
 
-  const options = [
-    {
-      name: 'team1',
-      children: [
-        {
-          name: 'webhook-example.yaml',
-          path: 'team1/webhook-example.yaml'
-        }
-      ]
-    },
-    {
-      name: 'uber',
-      children: [
-        {
-          name: 'api.json',
-          path: 'uber/api.json'
-        }
-      ]
-    },
-    {
-      name: 'asyncapi',
-      children: [
-        {
-          name: 'account-service.json',
-          path: 'asyncapi/account-service.json'
-        },
-        {
-          name: 'streetlights.yaml',
-          path: 'asyncapi/streetlights.yaml'
-        }
-      ]
-    }
-  ];
+  const { data, loading, error } = useApi({
+    route: '/api/definitions',
+    defaultData: []
+  });
+
+  console.log({ data, loading, error });
+
+  const options = Object.entries( data ).map( ([name, children]) => {
+    return {
+      name,
+      children
+    };
+  });
 
   return (
     <CascadeSelect

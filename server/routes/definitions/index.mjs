@@ -6,7 +6,24 @@ const router = new Router({ prefix: '/api/definitions' });
 router.get( '/', async ctx => {
   const { Contents } = await list_objects();
 
-  ctx.body = Contents.map( i => i.Key );
+  const pathsByTeam = {};
+
+  for ( const { Key } of Contents ) {
+    const [ team, ...path ] = Key.split('/');
+
+    if ( !pathsByTeam[ team ] ) {
+      pathsByTeam[team] = [];
+    }
+
+    const pathString = path.join('/');
+
+    pathsByTeam[ team ].push({
+      name: pathString,
+      path: `${ team }/${ pathString }`
+    });
+  }
+
+  ctx.body = pathsByTeam;
 });
 
 export default router;
