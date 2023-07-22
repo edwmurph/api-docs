@@ -3,6 +3,7 @@ import yaml from 'js-yaml';
 import use_api from '../hooks/use-api';
 import Swagger from './swagger.jsx';
 import AsyncApi from './asyncapi.jsx';
+import Markdown from './markdown.jsx';
 
 function parse({ definition, data }) {
   try {
@@ -13,7 +14,6 @@ function parse({ definition, data }) {
     }
 
     if ( /^json$/.test( extension ) ) {
-      console.log( 'data', data );
       return typeof data === 'string' ? JSON.parse( data ) : data;
     }
   } catch ( ex ) {
@@ -34,6 +34,10 @@ export default function Definition() {
 
   if ( error ) {
     return error;
+  }
+
+  if ( path.endsWith('.md') ) {
+    return ( <Markdown md={data}/> );
   }
 
   // TODO memoize this

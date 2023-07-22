@@ -59,3 +59,11 @@ resource "aws_s3_object" "streetlights_api" {
   content_type = "application/json"
   etag         = filemd5("../definitions/asyncapi/streetlights.yaml")
 }
+
+resource "aws_s3_object" "xos_md" {
+  bucket       = aws_s3_bucket.definitions.id
+  key          = "delivery/xos.md"
+  source       = "../definitions/delivery/xos.md"
+  content_type = "application/json"
+  etag         = filemd5("../definitions/delivery/xos.md")
+}
