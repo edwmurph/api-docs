@@ -12,6 +12,7 @@ import { PrimeReactProvider } from 'primereact/api';
 import Layout from './components/layout.jsx';
 import Home from './components/home.jsx';
 import Definition from './components/definition.jsx';
+import GlobalProvider from './components/global-provider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot( document.getElementById('root') ).render(
   <React.StrictMode>
     <PrimeReactProvider>
-      <RouterProvider router={router}/>
+      <GlobalProvider>
+        <RouterProvider router={router}/>
+      </GlobalProvider>
     </PrimeReactProvider>
   </React.StrictMode>
 );

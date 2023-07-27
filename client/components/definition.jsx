@@ -1,5 +1,7 @@
+import { useContext } from 'react';
 import { createSearchParams, useSearchParams } from 'react-router-dom';
 import yaml from 'js-yaml';
+import SettingsContext from '../contexts/settings';
 import use_api from '../hooks/use-api';
 import Swagger from './swagger.jsx';
 import AsyncApi from './asyncapi.jsx';
@@ -25,6 +27,7 @@ function parse({ definition, data }) {
 
 export default function Definition() {
   const [params] = useSearchParams();
+  const { settings } = useContext( SettingsContext );
 
   const path = params.get('path');
 
@@ -36,18 +39,24 @@ export default function Definition() {
     return error;
   }
 
+  if ( loading ) {
+    return 'Loading...';
+  }
+
+  if ( settings.rawDocs ) {
+    return (
+      <code className='block white-space-pre my-4 mx-1 md:mx-4'>
+        {typeof data === 'object' ? JSON.stringify( data, null, 2 ) : data}
+      </code>
+    );
+  }
+
   if ( path.endsWith('.md') ) {
     return ( <Markdown md={data}/> );
   }
 
   // TODO memoize this
   const parsed = parse({ definition: path, data });
-
-  console.log( parsed );
-
-  if ( loading || !parsed ) {
-    return 'Loading...';
-  }
 
   if ( parsed.swagger || parsed.openapi ) {
     return ( <Swagger spec={parsed}/> );
