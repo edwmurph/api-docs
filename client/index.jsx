@@ -1,9 +1,10 @@
-import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primereact/resources/themes/bootstrap4-light-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import 'swagger-ui-react/swagger-ui.css';
 import '@asyncapi/react-component/styles/default.css';
+import 'github-markdown-css/github-markdown-light.css';
 import './global.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';

@@ -5,7 +5,4 @@ client side rendered react app demoing standalone swagger and asyncapi integrati
 ## TODO
 
 - custom renderer for event driven api docs
-- enable viewing raw api doc
-- explore react-markdown plugins
-- enable search in definition dropdown
-- better custom fonts for markdown
+- better settings overlay panel

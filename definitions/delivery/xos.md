@@ -11,6 +11,8 @@ console.log('It works!')
 
 Here's a paragraph using markdown for *emphasis* and **strong importance**
 
+Here's a paragraph using html for <em>emphasis</em> and <b>strong importance</b>
+
 * Lists
 * [ ] todo
 * [x] done
@@ -21,3 +23,10 @@ Here's a table:
 |-------------|-----------|----------------------|
 | description | required  | description to fetch |
 | document_id | required  | document id to fetch |
+
+Here's another table:
+
+| Feature    | Support              |
+| ---------: | :------------------- |
+| CommonMark | 100%                 |
+| GFM        | 100% w/ `remark-gfm` |
