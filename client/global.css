@@ -13,3 +13,23 @@
 .white-space-pre {
   white-space: pre;
 }
+
+.panel-item--center {
+  padding: 0 !important;
+}
+
+.panel--center {
+  padding: 0 !important;
+}
+
+.p-submenu-list {
+  width: auto !important;
+}
+
+.p-menubar .p-submenu-list {
+  z-index: 20 !important;
+}
+
+.swagger-ui .info {
+  margin-top: 0px !important;
+}

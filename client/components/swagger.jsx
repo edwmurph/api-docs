@@ -4,8 +4,6 @@ import SwaggerUI from 'swagger-ui-react';
 
 export default function Swagger({ spec }) {
   return (
-    <div className='d-flex justify-content-center'>
-      <SwaggerUI spec={spec}/>
-    </div>
+    <SwaggerUI spec={spec}/>
   );
 }

@@ -15,6 +15,7 @@ const use_api = ({ route, defaultData = null }) => {
         const res = await axios.get( route );
         setData( res.data );
       } catch ( e ) {
+        console.error( e );
         setError( e.message );
         setData( null );
       }

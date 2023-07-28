@@ -5,4 +5,3 @@ client side rendered react app demoing standalone swagger and asyncapi integrati
 ## TODO
 
 - custom renderer for event driven api docs
-- better settings overlay panel

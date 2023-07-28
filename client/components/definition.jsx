@@ -25,6 +25,14 @@ function parse({ definition, data }) {
   }
 }
 
+function DefinitionContainer({ children }) {
+  return (
+    <div className='my-5 lg:my-7 mx-2 md:mx-5 lg:mx-8'>
+      {children}
+    </div>
+  );
+}
+
 export default function Definition() {
   const [params] = useSearchParams();
   const { settings } = useContext( SettingsContext );
@@ -45,28 +53,44 @@ export default function Definition() {
 
   if ( settings.rawDocs ) {
     return (
-      <code className='block white-space-pre my-4 mx-1 md:mx-4'>
-        {typeof data === 'object' ? JSON.stringify( data, null, 2 ) : data}
-      </code>
+      <DefinitionContainer>
+        <code className='block white-space-pre'>
+          {typeof data === 'object' ? JSON.stringify( data, null, 2 ) : data}
+        </code>
+      </DefinitionContainer>
     );
   }
 
   if ( path.endsWith('.md') ) {
-    return ( <Markdown md={data}/> );
+    return (
+      <DefinitionContainer>
+        <Markdown md={data}/>
+      </DefinitionContainer>
+    );
   }
 
   // TODO memoize this
   const parsed = parse({ definition: path, data });
 
   if ( parsed.swagger || parsed.openapi ) {
-    return ( <Swagger spec={parsed}/> );
+    return (
+      <DefinitionContainer>
+        <Swagger spec={parsed}/>
+      </DefinitionContainer>
+    );
   }
 
   if ( parsed.asyncapi ) {
-    return ( <AsyncApi schema={parsed}/> );
+    return (
+      <DefinitionContainer>
+        <AsyncApi schema={parsed}/>
+      </DefinitionContainer>
+    );
   }
 
   return (
-    <div>{JSON.stringify( parsed )}</div>
+    <DefinitionContainer>
+      {JSON.stringify( parsed )}
+    </DefinitionContainer>
   );
 }
